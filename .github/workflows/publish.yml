@@ -12,11 +12,11 @@ jobs:
       - name: Checkout App
         uses: actions/checkout@v3
       - name: Add nodejs
-        uses: dcodeIO/setup-node-nvm@master
+        uses: actions/setup-node@v3.5.0
         with:
           node-version: 18
       - name: Install pnpm
-        run: sudo curl -fsSL https://get.pnpm.io/install.sh | sh -
+        run: npm i -g pnpm
       - name: Install Deps
         run: pnpm install
       - name: Publish
