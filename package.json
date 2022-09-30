@@ -1,0 +1,34 @@
+{
+  "name": "just-lib.js",
+  "version": "1.0.0",
+  "description": "The framework to make pure js frontend apps",
+  "module": "es/index.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node dev.js",
+    "compile": "tsc -b && pnpm singlefile",
+    "singlefile": "ncc build js/index.js -o bin/lib"
+  },
+  "keywords": [
+    "framework",
+    "library",
+    "web-framework"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "just": "./bin/index.js",
+    "justc": "./bin/justc.js"
+  },
+  "dependencies": {
+    "chalk": "4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.23",
+    "@vercel/ncc": "^0.34.0",
+    "typescript": "^4.8.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

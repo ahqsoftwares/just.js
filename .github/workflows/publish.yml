@@ -1,0 +1,28 @@
+name: "Build outputs and lint"
+
+on: 
+  push:
+    branches:
+      - "master"
+
+jobs:
+  publish-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout App
+        uses: actions/checkout@v3
+      - name: Install sudo
+        run: sudo apt-get install curl
+      - name: Add nvm
+        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+      - name: Add nodejs
+        run: nvm use v18.2.0
+      - name: Install pnpm
+        run: curl -fsSL https://get.pnpm.io/install.sh | sh -
+      - name: Install Deps
+        run: yarn install
+      - name: Publish
+        run: node publish
+        continue-on-error: false
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
