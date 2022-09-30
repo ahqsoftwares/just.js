@@ -5,7 +5,7 @@ const chalk = require("chalk");
 
 function publish(tag) {
          console.log(`Publishing @${chalk.green(tag ? tag : "latest")}`);
-         exec(`npm publish${tag ? ` --tag=${tag}` : ""}`, {env: process.env}, (err, stderr, out) => {
+         exec(`npm publish${tag ? ` --tag=${tag}` : ""}`, {env: {NPM_AUTH_TOKEN: process.env.NODE_AUTH_TOKEN}}, (err, stderr, out) => {
                   if (err) {
                            console.log(chalk.red(String(err)));
                   }
