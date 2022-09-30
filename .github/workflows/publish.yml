@@ -11,12 +11,10 @@ jobs:
     steps:
       - name: Checkout App
         uses: actions/checkout@v3
-      - name: Install sudo
-        run: sudo apt-get install curl
-      - name: Add nvm
-        run: sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
       - name: Add nodejs
-        run: which nvm
+        uses: dcodeIO/setup-node-nvm@master
+        with:
+          node-version: 18
       - name: Install pnpm
         run: sudo curl -fsSL https://get.pnpm.io/install.sh | sh -
       - name: Install Deps
