@@ -1,7 +1,9 @@
-const { exec, execSync } = require("child_process");
+const { exec } = require("child_process");
 
 const version = require("./package.json").version;
 const chalk = require("chalk");
+
+
 
 function publish(tag) {
          console.log(`Publishing @${chalk.green(tag ? tag : "latest")}`);
