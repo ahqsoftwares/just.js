@@ -20,8 +20,8 @@ if (version.endsWith("-dev")) {
          publish("dev");
 } else if (version.endsWith("-beta")) {
          publish("beta");
-} else if (version.endsWith("-rc")) {
-         publish("rc");
+} else if (version.endsWith("-pr")) {
+         publish("pr");
 } else {
          publish();
 }

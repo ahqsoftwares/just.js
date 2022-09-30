@@ -1,6 +1,6 @@
 {
   "name": "just-lib.js",
-  "version": "1.0.0",
+  "version": "1.0.0-dev",
   "description": "The framework to make pure js frontend apps",
   "module": "es/index.js",
   "main": "index.js",
